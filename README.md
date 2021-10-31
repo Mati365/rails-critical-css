@@ -53,6 +53,9 @@ In template:
   = critical_css_tags
     link rel="stylesheet" href="css/vendors.css" rel='stylesheet' type='text/css'
     link rel="stylesheet" href="css/app.css" rel='stylesheet' type='text/css'
+
+  - unless crticial_css?
+    div Critical css is being generated...
 ```
 
 ## Testing
