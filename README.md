@@ -1,10 +1,17 @@
 # rails-critical-css
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mati365/rails-critical-css?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/mati365/rails-critical-css?style=flat-square)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 Generate on demand critical css for component actions with minimum effort.
 
 ## Installation
 
+```bash
 gem 'rails_critical_css'
+```
 
 ## Usage
 
