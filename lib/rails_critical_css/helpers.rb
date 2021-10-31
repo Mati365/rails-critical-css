@@ -33,9 +33,11 @@ module RailsCriticalCss::Helpers
 
   def critical_css_link(href:, media: nil)
     if critical_css?
-      link_to href: href, rel: 'preload', as: 'style', media: media, onload: "this.rel = 'stylesheet'"
+      link_to(href: href, rel: 'preload', as: 'style', media: media, onload: "this.rel = 'stylesheet'")
     else
-      link_to href: href, rel: 'stylesheet', media: media
+      append_css_tags_assets(content) do
+        link_to(href: href, rel: 'stylesheet', media: media)
+      end
     end
   end
 end
