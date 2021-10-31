@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
+require 'open3'
+require 'json'
+
 module RailsCriticalCss
+  LIB_ROOT = File.expand_path(File.join('..'), File.dirname(__FILE__))
+
   class Extractor
     include RailsCriticalCss::Actions::Helpers
 
@@ -13,13 +18,15 @@ module RailsCriticalCss
       tmp_css_file = tmp_concat_assets_array(@css[:assets], extension: 'css')
       return nil unless tmp_html_file.present? && tmp_css_file.present?
 
-      stdout, stderr = Open3.capture2e(
-        'node lib/rails_critical_css/js/css-extractor.js',
-        stdin_data: Extractor.extractor_process_input(
-          html_path: tmp_html_file.path,
-          css_path: tmp_css_file.path,
+      stdout, stderr = Dir.chdir(LIB_ROOT) do
+        Open3.capture2e(
+          'node js/css-extractor.js',
+          stdin_data: Extractor.extractor_process_input(
+            html_path: tmp_html_file.path,
+            css_path: tmp_css_file.path,
+          )
         )
-      )
+      end
 
       if stderr.try(:success?) && !stdout.try(:include?, 'UnhandledPromiseRejectionWarning')
         [

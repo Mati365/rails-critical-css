@@ -6,11 +6,13 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    open3 (0.1.0)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  open3
   rails_critical_css!
 
 BUNDLED WITH
