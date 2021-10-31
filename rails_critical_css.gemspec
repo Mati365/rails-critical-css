@@ -6,6 +6,7 @@ require 'rails_critical_css/version'
 Gem::Specification.new do |s|
   s.name = 'rails_critical_css'
   s.version = RailsCriticalCss::VERSION
+  s.platform = Gem::Platform::RUBY
   s.summary = 'Critical CSS rails generator'
   s.authors = ['Mateusz Bagiński']
 
@@ -16,4 +17,5 @@ Gem::Specification.new do |s|
 
   s.require_paths = ['lib']
   s.required_ruby_version = '>= 2.4.0'
+  s.extensions = ['ext/npm/extconf.rb']
 end

@@ -5,7 +5,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/mati365/rails-critical-css?style=flat-square)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Generate on demand critical css for component actions with minimum effort.
+Generate on demand critical css for component actions with minimum effort. It is pretty similar to: https://github.com/mudbugmedia/critical-path-css-rails but instead of pregenerating critical css this gem generates them in fly and dynamically.
 
 ## Installation
 
