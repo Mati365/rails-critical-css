@@ -9,6 +9,7 @@ require 'critical_css_generator/jobs/extractor'
 require 'critical_css_generator/actions/after_render'
 require 'critical_css_generator/actions/before_render'
 require 'critical_css_generator/helpers'
+require 'critical_css_generator/railtie'
 
 module CriticalCssGenerator
   def self.config
