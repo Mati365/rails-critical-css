@@ -9,7 +9,7 @@ Generate on demand critical css for component actions with minimum effort. It is
 
 ## Installation
 
-Be sure that NPM and Node is installed in your system.
+Be sure that NPM and Node is installed in your system and add to Gemfile:
 
 ```bash
 gem 'rails_critical_css'
