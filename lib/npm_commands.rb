@@ -2,7 +2,6 @@
 
 class NpmCommands
   def install(*args)
-    return false unless check_nodejs_installed
     STDERR.puts 'Installing npm dependencies...'
 
     install_status = Dir.chdir File.expand_path('..', File.dirname(__FILE__)) do
