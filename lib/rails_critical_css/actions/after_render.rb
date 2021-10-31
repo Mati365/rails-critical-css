@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module CriticalCssGenerator::Actions
+module RailsCriticalCss::Actions
   class AfterRender
-    include CriticalCssGenerator::Actions::Helpers
+    include RailsCriticalCss::Actions::Helpers
 
     def initialize(filter_options)
       @packed_options = filter_options.slice(
@@ -19,7 +19,7 @@ module CriticalCssGenerator::Actions
 
       return if cache_path == false
 
-      CriticalCssGenerator::Jobs::Extractor.perform_if_semaphore_is_released(
+      RailsCriticalCss::Jobs::Extractor.perform_if_semaphore_is_released(
         html: controller.full_html_response,
         cache: {
           path: cache_path,

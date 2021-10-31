@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CriticalCssGenerator::Jobs
+module RailsCriticalCss::Jobs
   class Extractor < ActiveJob::Base
     class << self
       def semaphore_key(cache_path)
@@ -18,7 +18,7 @@ module CriticalCssGenerator::Jobs
 
     def perform(cache:, css:, html:)
       semaphore = self.class.semaphore_key(cache[:path])
-      critical_css = ::CriticalCssGenerator::Extractor.new(css: css, html: html).try_extract
+      critical_css = ::RailsCriticalCss::Extractor.new(css: css, html: html).try_extract
 
       # store it as wrapped css, do not regenerate for
       # each request critical_css if something go wrong

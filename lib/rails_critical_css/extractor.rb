@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module CriticalCssGenerator
+module RailsCriticalCss
   class Extractor
-    include CriticalCssGenerator::Actions::Helpers
+    include RailsCriticalCss::Actions::Helpers
 
     def initialize(options)
       @html, @css = options.values_at(:html, :css)
@@ -14,7 +14,7 @@ module CriticalCssGenerator
       return nil unless tmp_html_file.present? && tmp_css_file.present?
 
       stdout, stderr = Open3.capture2e(
-        'node lib/critical_css_generator/js/css-extractor.js',
+        'node lib/rails_critical_css/js/css-extractor.js',
         stdin_data: Extractor.extractor_process_input(
           html_path: tmp_html_file.path,
           css_path: tmp_css_file.path,
@@ -37,7 +37,7 @@ module CriticalCssGenerator
     end
 
     def self.extractor_process_input(html_path:, css_path:)
-      config = ::CriticalCssGenerator::Config.as_json_config({
+      config = ::RailsCriticalCss::Config.as_json_config({
         url: "file://#{html_path}",
         css: css_path,
       })

@@ -20,7 +20,7 @@ Install `penthouse` NPM package in your project. Be sure that node_modules/ dire
 In initializer:
 
 ```ruby
-CriticalCssGenerator.config do |c|
+RailsCriticalCss.config do |c|
   c.keep_larger_media_queries = true
   c.height = 19999 # prevent CLS on for example footer
 end

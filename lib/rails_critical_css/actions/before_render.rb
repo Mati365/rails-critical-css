@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module CriticalCssGenerator::Actions
+module RailsCriticalCss::Actions
   class BeforeRender
-    include CriticalCssGenerator::Actions::Helpers
+    include RailsCriticalCss::Actions::Helpers
 
     def initialize(filter_options)
       @packed_options = filter_options.slice(:css, :cache_key, :cache_prefix)

@@ -1,8 +1,11 @@
-$:.push File.expand_path("../lib", __FILE__)
+lib = File.expand_path('lib', __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'rails_critical_css/version'
 
 Gem::Specification.new do |s|
   s.name = 'rails_critical_css'
-  s.version = '0.3.1'
+  s.version = RailsCriticalCss::VERSION
   s.summary = 'Critical CSS rails generator'
   s.authors = ['Mateusz Bagiński']
 
@@ -11,6 +14,6 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/Mati365/rails-critical-css'
   s.files = `git ls-files`.split($/)
 
-  s.require_paths << 'lib'
+  s.require_paths = ['lib']
   s.required_ruby_version = '>= 2.4.0'
 end

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 require 'rails/railtie'
 
-module CriticalCssGenerator
+module RailsCriticalCss
   class Railtie < Rails::Railtie
-    config.eager_load_namespaces << CriticalCssGenerator
+    config.eager_load_namespaces << RailsCriticalCss
   end
 end

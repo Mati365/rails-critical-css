@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CriticalCssGenerator::Helpers
+module RailsCriticalCss::Helpers
   def critical_css
     @critical_css_cache.try(:[], :css)
   end

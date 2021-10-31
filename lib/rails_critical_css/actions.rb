@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module CriticalCssGenerator::Actions
+module RailsCriticalCss::Actions
   extend ActiveSupport::Concern
 
   included do
-    include CriticalCssGenerator::Helpers
+    include RailsCriticalCss::Helpers
 
     attr_accessor :lazy_css_blocks,
                   :critical_css_assets,
@@ -50,8 +50,8 @@ module CriticalCssGenerator::Actions
       options[:cache_prefix] ||= 'critical-css'
 
       filter_options = options.extract!(:if, :unless).merge(only: actions)
-      around_action CriticalCssGenerator::Actions::BeforeRender.new(options), filter_options
-      after_action CriticalCssGenerator::Actions::AfterRender.new(options), filter_options
+      around_action RailsCriticalCss::Actions::BeforeRender.new(options), filter_options
+      after_action RailsCriticalCss::Actions::AfterRender.new(options), filter_options
     end
   end
 end

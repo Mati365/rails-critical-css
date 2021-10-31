@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CriticalCssGenerator
+module RailsCriticalCss
   class Config
     class << self
       attr_writer :width, :height, :keep_larger_media_queries,

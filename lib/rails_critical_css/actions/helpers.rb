@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CriticalCssGenerator::Actions::Helpers
+module RailsCriticalCss::Actions::Helpers
   def group_assets_by_type(assets)
     return [] unless assets.present?
 
