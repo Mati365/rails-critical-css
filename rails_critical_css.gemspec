@@ -13,9 +13,9 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
   s.email = 'cziken58@gmail.com'
   s.homepage = 'https://github.com/Mati365/rails-critical-css'
-  s.files = `git ls-files`.split($/)
-
+  s.files = `git ls-files`.split("\n")
+  s.executables  = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
+  s.extensions = ['ext/npm/extconfig.rb']
   s.require_paths = ['lib']
   s.required_ruby_version = '>= 2.4.0'
-  s.extensions = ['ext/npm/extconf.rb']
 end
