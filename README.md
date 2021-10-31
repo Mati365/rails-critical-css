@@ -51,11 +51,13 @@ In template:
 ```slim
   # These files will be prepended to critical css generator output, it can be normal scss file from assets
   # critical_css_asset outputs nothing, it will be not appended to your html in link tag
-  = critical_css_asset file: 'some-file-to-be-prepended-to-criticals', critical: true
-  = critical_css_asset file: 'hide-some-js-blocks', critical: true
+  # (optional)
+  = critical_css_asset 'some-file-to-be-prepended-to-criticals', critical: true
+  = critical_css_asset 'hide-some-js-blocks', critical: true
 
   # depending on critical_css? flag (it returns false if critical css is being generated)
   # it emits link(href="your_file" rel="stylesheet") or link(href="your_file" rel="preload" onload="this.rel = 'stylesheet'")
+  = critical_css_tag # emits inline critical CSS if present
   = critical_css_link 'css/vendors.css'
   = critical_css_link 'css/vendors.css', media: 'print'
 
@@ -63,6 +65,7 @@ In template:
   # Generator will extract hrefs from emitted html and generate stylesheet output
   # if critical css is compiled successfully it will emit critical css
   # and if preserve_content: true (which is default) arg is provided it will preserve provided content
+  # (optional)
   = critical_css_tags
     = your_custom_link_helper "css/vendors.css"
     = your_custom_link_helper "css/app.css"
