@@ -30,9 +30,9 @@ In controller:
 
 ```ruby
   class ExampleController < ApplicationController
-    action_critical_css :show, cache_key: :critical_css_cache_key
+    action_critical_css :show, cache_key: :critical_css_cache_key, if: -> { .. }
     # or
-    action_critical_css :show, cache_key: -> { 'cache_key' }
+    action_critical_css :show, cache_key: -> { 'cache_key' }, unless: -> { ... }
     # or
     action_critical_css :show, cache_key: 'cache_key'
 
