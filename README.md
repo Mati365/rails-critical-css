@@ -17,7 +17,7 @@ gem 'rails_critical_css'
 
 ## Usage
 
-Install `penthouse` NPM package in your project. Be sure that node_modules/ directory is present on production builds.
+Be sure that node_modules/ directory is present on production builds, package installs `penthouse` during `bundle install`
 
 In initializer:
 
