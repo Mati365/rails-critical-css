@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_critical_css (0.2.0)
+    rails_critical_css (0.3.1)
 
 GEM
   remote: https://rubygems.org/
