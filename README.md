@@ -5,7 +5,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/mati365/rails-critical-css?style=flat-square)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Generate on demand critical css for component actions with minimum effort. It is pretty similar to: https://github.com/mudbugmedia/critical-path-css-rails but instead of pregenerating critical css this gem generates them in fly and dynamically.
+Generate on demand critical css for component actions with minimum effort. It is pretty similar to other rails critical css gems but instead of pregenerating critical css in job this gem generates them in fly, dynamically and allows to prepend custom SCSS files to generated critical bundle.
 
 ## Installation
 
@@ -49,10 +49,22 @@ In controller:
 In template:
 
 ```slim
+  # These files will be prepended to critical css generator output, it can be normal scss file from assets
+  # critical_css_asset outputs nothing, it will be not appended to your html in link tag
   = critical_css_asset file: 'some-file-to-be-prepended-to-criticals', critical: true
+  = critical_css_asset file: 'hide-some-js-blocks', critical: true
+
+  # depending on critical_css? flag (it returns false if critical css is being generated)
+  # it emits link(href="your_file" rel="stylesheet") or link(href="your_file" rel="preload" onload="this.rel = 'stylesheet'")
+  = critical_css_link href: 'css/vendors.css'
+
+  # If you have custom link helper (which for example loads css tag after GDPR accept) you can use helper below
+  # Generator will extract hrefs from emitted html and generate stylesheet output
+  # if critical css is compiled successfully it will emit critical css
+  # and if preserve_content: true (which is default) arg is provided it will preserve provided content
   = critical_css_tags
-    link rel="stylesheet" href="css/vendors.css" rel='stylesheet' type='text/css'
-    link rel="stylesheet" href="css/app.css" rel='stylesheet' type='text/css'
+    = your_custom_link_helper "css/vendors.css"
+    = your_custom_link_helper "css/app.css"
 
   - unless crticial_css?
     div Critical css is being generated...

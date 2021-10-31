@@ -30,4 +30,12 @@ module RailsCriticalCss::Helpers
       content
     end
   end
+
+  def critical_css_link(href:, media: nil)
+    if critical_css?
+      link_to href: href, rel: 'preload', as: 'style', media: media, onload: "this.rel = 'stylesheet'"
+    else
+      link_to href: href, rel: 'stylesheet', media: media
+    end
+  end
 end
