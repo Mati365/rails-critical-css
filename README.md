@@ -56,8 +56,8 @@ In template:
 
   # depending on critical_css? flag (it returns false if critical css is being generated)
   # it emits link(href="your_file" rel="stylesheet") or link(href="your_file" rel="preload" onload="this.rel = 'stylesheet'")
-  = critical_css_link href: 'css/vendors.css'
-  = critical_css_link href: 'css/vendors.css', media: 'print'
+  = critical_css_link 'css/vendors.css'
+  = critical_css_link 'css/vendors.css', media: 'print'
 
   # If you have custom link helper (which for example loads css tag after GDPR accept) you can use helper below
   # Generator will extract hrefs from emitted html and generate stylesheet output
