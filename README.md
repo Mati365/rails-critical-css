@@ -46,7 +46,7 @@ In controller:
 
 In template:
 
-```slim
+```ruby
   # These files will be prepended to critical css generator output, it can be normal scss file from assets
   # critical_css_asset outputs nothing, it will be not appended to your html in link tag
   # (optional)
